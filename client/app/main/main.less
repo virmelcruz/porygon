@@ -33,17 +33,59 @@
     margin-left: 15px;
 }
 
-.k-panelbar .k-icon {
-    background-image: none;
-    font-family: 'Glyphicons Halflings';
-    font-size: 1em;
-    overflow: visible;
+.football-container {
+  border: 1px solid #F0F0F0;
+  padding: 30px 30px 0px 30px;
 }
 
-.k-panelbar-expand::before {
-    content: "\f077";
+.football-field {
+  background: url('/assets/images/football-pitch.png') no-repeat center center; 
+  background-size: cover; 
+  height: 850px;
+  position: relative;
+  padding: 0px 10px;
+  
+  .right-field, .left-field {
+    height: 100%;
+    padding: 9px 0px;
+  }
+
+  .field {
+    padding: 0px;
+    height: 100%;
+  }
+
+
+  .player-position {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #CCCCCC;
+  }
 }
 
-.k-panelbar-collapse::before {
-    content: "\f078";
+.player-list {
+  li {
+    list-style-type: none;
+  }
 }
+
+.player-container {
+  cursor: move;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  img {
+    border: 1px solid green;
+    width: 30px;
+    height: 30px;
+  }
+  &.selected {
+    opacity: 0;
+  }
+}
+
+.player-view {
+    list-style-type: none;
+    padding: 10px;
+}
+
+
