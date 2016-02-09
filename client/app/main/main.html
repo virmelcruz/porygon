@@ -10,17 +10,18 @@
       <!-- <img src="aaaaaa" style="top: 50%; position: absolute;"/> -->
       <div class="right-field col-xs-6">
         <div class="field right-field-1 col-xs-3">
-          <div class="player-position" style="top: 45%; position: absolute;" kendo-droptarget> </div>
-          <div class="player-position" style="top: 65%; position: absolute;"></div>
+          <drop-target-user> </drop-target-user>
+          <!-- <div class="player-position" style="top: 45%; position: absolute;" kendo-droptarget k-dragenter="onDragEnter" k-dragleave="onDragLeave" k-drop="onDrop"> </div> -->
+          <drop-target-user> </drop-target-user>
         </div>
         <div class="field right-field-2 col-xs-2">
           
         </div>
         <div class="field right-field-3 col-xs-2">
-          <div class="player-position" style="top: 45%; position: absolute;"></div>  
+          <drop-target-user> </drop-target-user>
         </div>
         <div class="field right-field-4 col-xs-2">
-          <div class="player-position" style="top: 65%; position: absolute;"></div>
+          <drop-target-user> </drop-target-user>
         </div>
         <div class="field right-field-4 col-xs-3">
 
@@ -28,8 +29,8 @@
       </div>
       <div class="left-field col-xs-6">
         <div class="field left-field-1 col-xs-3">
-          <div class="player-position" style="top: 45%; position: absolute;"></div>
-          <div class="player-position" style="top: 65%; position: absolute;"></div>
+          <drop-target-user> </drop-target-user>
+          <drop-target-user> </drop-target-user>
         </div>
         <div class="field left-field-2 col-xs-2">
           
@@ -38,8 +39,8 @@
           
         </div>
         <div class="field left-field-4 col-xs-2">
-          <div class="player-position" style="top: 45%; position: absolute;"></div>
-          <div class="player-position" style="top: 65%; position: absolute;"></div>
+          <drop-target-user> </drop-target-user>
+          <drop-target-user> </drop-target-user>
         </div>
         <div class="field left-field-4 col-xs-3">
 
@@ -54,55 +55,30 @@
       <li>
         Goalkeepers
         <ul class="player-list">
-          <li ng-repeat="userData in users | filter: { user: {role: 'Goalkeeper'}}" class="player-view" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd">
-            <div class="player-container" >
-              <img src="{{userData.user.picture.thumbnail}}" />
-              {{userData.user.name.last}}, {{userData.user.name.first}}
-            </div>
-          </li>
+          <draggable-user users="users" role="Goalkeeper"> </draggable-user>
         </ul>
       </li>
       <li>
         Defense
         <ul class="player-list">
-          <li ng-repeat="userData in users | filter: { user: {role: 'Defense'}}" class="player-view" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd">
-            <div class="player-container">
-              <img src="{{userData.user.picture.thumbnail}}" />
-              {{userData.user.name.last}}, {{userData.user.name.first}}
-            </div>
-          </li>
+          <draggable-user users="users" role="Defense"> </draggable-user>
         </ul>
       </li>
       <li>
         Midfielders
         <ul class="player-list">
-          <li ng-repeat="userData in users | filter: { user: {role: 'Midfielder'}}" class="player-view" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd">
-            <div class="player-container">
-              <img src="{{userData.user.picture.thumbnail}}" />
-              {{userData.user.name.last}}, {{userData.user.name.first}}
-            </div>
-          </li>
+          <draggable-user users="users" role="Midfielder"> </draggable-user>
         </ul>
       </li>
       <li>
         Forwards
         <ul class="player-list">
-          <li ng-repeat="userData in users | filter: { user: {role: 'Forward'}}" class="player-view" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd">
-            <div class="player-container" kendo-draggable>
-              <img src="{{userData.user.picture.thumbnail}}" />
-              {{userData.user.name.last}}, {{userData.user.name.first}}
-            </div>
-          </li>
+          <draggable-user users="users" role="Forward"> </draggable-user>
         </ul>
       </li>
     </ul>
   </div>
 </div>
-
-<!-- <div class="demo-section k-content">
-    <div id="droptarget" kendo-droptarget k-dragenter="onDragEnter" k-dragleave="onDragLeave" k-drop="onDrop" class="k-header">{{ dropTargetText }}</div>
-    <div class="{{ draggableCLass }}" id=" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd"></div>
-</div> -->
 
 <footer class="footer">
   <div class="container">
