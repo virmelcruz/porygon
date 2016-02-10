@@ -4,7 +4,7 @@ angular.module('porygonApp')
   .controller('MainCtrl', function ($scope, User) {
 
     //Initialization
-    var currElement = "";
+    $scope.prevUser = {};
 
     //Get random user change '20' for desired number of users
     User.getRandomUser(20).then(function(users) {

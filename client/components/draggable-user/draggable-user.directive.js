@@ -23,12 +23,19 @@ angular.module('porygonApp')
 
 		    //listener for stop drag event
 		    scope.onDragEnd = function(e) {
-		    	if (!cloneElem.data("kendoDraggable").dropped) {
-            // drag ended outside of any droptarget
-            
-          } else {
-          	console.log("dropped");
-          }
+		    	//get element for checking if dropped
+		    	var draggUser = angular.element(e);
+		    	var userData = angular.element(this.element).scope().userData;;
+		    	var _this = this;
+
+		    	scope.$apply(function() {
+			    	if (_this.dropped) {
+			    		userData.user.added = true;
+	          } else {
+			    		userData.user.added = false;
+	          }
+          });
+
 		    	//removes draggable style on clone element
 		    	cloneElem.find(".player-container").remove("active");
 		    };
@@ -37,7 +44,7 @@ angular.module('porygonApp')
 		    scope.onDragStart = function(e) {
 		    	//for getting the targeted element
 		    	var playerContainer = cloneElem.find(".player-container");
-
+		    	
 		    	//for adding draggable style
 		    	playerContainer.addClass("active");
 

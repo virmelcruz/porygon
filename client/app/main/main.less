@@ -55,6 +55,12 @@
     height: 100%;
   }
 
+  .player-spot {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
 }
 
 .player-list {
@@ -73,6 +79,7 @@
     
     &.added {
       background-color: #D9FBEC;
+      pointer-events: none;
     }
 
     &.available {
