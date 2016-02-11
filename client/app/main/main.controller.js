@@ -13,6 +13,14 @@ angular.module('porygonApp')
         data.user.role = User.getRandomRole();
       });
       $scope.users = users.data.results;
+      
+      //set sample injured player
+      var injuredUser = _.sample($scope.users);
+      injuredUser.user.injured = true;
+
+      //set sample modefied player
+      var injuredUser = _.sample($scope.users);
+      injuredUser.user.modefied = true;
     });
 
     //Drowdown list
