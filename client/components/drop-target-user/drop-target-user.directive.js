@@ -10,7 +10,7 @@ angular.module('porygonApp')
       restrict: 'EA',
 	    link: function (scope, element, attrs) {
 
-	    	var previosUser = {};
+	    	var previousUser = {};
 	    	var currUser = {};
 
       	//listener draggable enters the area
@@ -35,29 +35,32 @@ angular.module('porygonApp')
 			    // checks if position has background image
 		      // if(playerPosition.hasClass("active")) {
 			    	// //set position image to previous user
-		    		// setBgImage(playerPosition, previosUser);
+		    		// setBgImage(playerPosition, previousUser);
 		      // }
 		    };
 
 		    //listener draggable drops the area
 		    scope.onDrop = function(e) {
-
-		    	var userData = angular.element(e.target).scope().userData;
+		    	//change added(key) to false
+		    	if(!_.isEmpty(previousUser)) {
+		    		scope.$apply(function() {
+		    			previousUser.user.added = false;
+		    		});
+		    	}
 
 		    	//get current position element
 		    	var playerPosition = angular.element(this.element);
+		    	console.log(angular.element(this.element).parent());
 
 		    	//set styles
 		    	playerPosition.removeClass("enter");
 		    	playerPosition.addClass("active");
 		    	
-		    	//calls extract user
-		    	previosUser = extractUser(e);
-
-		    	console.log(angular.element(e.target).find(".player-container"));
+		    	//set get user as previous user for future ref
+		    	previousUser = extractUser(e);
 
 		    	//sets user image to position element
-		    	if(userData) {
+		    	if(previousUser) {
 		    		//set position image to current user
 		    		setBgImage(playerPosition, e);	
 		    	}
@@ -70,9 +73,9 @@ angular.module('porygonApp')
 
 		    //sets element image and name
 		    var setBgImage = function(position, e) {
-		    	var posName = position.next();
+		    	var posName = position.next().children("span");
 		    	var userData = extractUser(e);
-		    	
+
 		    	//sets user image to position element
 		    	position.css({
 		    		'background-image': 'url(' + userData.user.picture.thumbnail +')',
