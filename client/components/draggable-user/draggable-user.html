@@ -1,8 +1,8 @@
-<li ng-repeat="userData in users | filter: getRole()" class="player-view" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd">
+<li ng-repeat="userData in users | filter: getRole()" class="player-view" ng-class="{'added' : userData.user.added, 'injured' : userData.user.injured, 'modefied' : userData.user.modefied}" kendo-draggable k-hint="draggableHint" k-dragstart="onDragStart" k-dragend="onDragEnd">
 	<div class="player-container">
 	  <img src="{{userData.user.picture.thumbnail}}" />
 	  <span class="player-lastname" ng-bind="userData.user.name.last"></span> 
 		<span class="player-firstname" ng-bind="userData.user.name.first"></span>
-		<span class="fa fa-check"></span>
+		<span class="fa fa-check" ng-class="{'active': userData.user.added}"></span>
 	</div>
 </li>

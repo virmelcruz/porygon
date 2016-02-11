@@ -4,7 +4,7 @@ angular.module('porygonApp')
   .controller('MainCtrl', function ($scope, User) {
 
     //Initialization
-    var currElement = "";
+    $scope.prevUser = {};
 
     //Get random user change '20' for desired number of users
     User.getRandomUser(20).then(function(users) {
@@ -13,6 +13,14 @@ angular.module('porygonApp')
         data.user.role = User.getRandomRole();
       });
       $scope.users = users.data.results;
+      
+      //set sample injured player
+      var injuredUser = _.sample($scope.users);
+      injuredUser.user.injured = true;
+
+      //set sample modefied player
+      var injuredUser = _.sample($scope.users);
+      injuredUser.user.modefied = true;
     });
 
     //Drowdown list

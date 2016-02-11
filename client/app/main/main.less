@@ -55,6 +55,15 @@
     height: 100%;
   }
 
+  .player-spot {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    &.goal-keeper {
+      padding: 0 40%;
+    }
+  }
+
 }
 
 .player-list {
@@ -68,21 +77,25 @@
     font-weight: normal;
     padding: 10px;
     img {
-      border: 1px solid #00E381;  
+      border: 2px solid #00E381;  
     }
     
     &.added {
       background-color: #D9FBEC;
+      pointer-events: none;
     }
 
-    &.available {
-
+    &.modefied {
+      img {
+        border: 2px solid #E6C50B;
+      }
     }
 
     &.injured {
       background-color: #FFE0E0;
+      pointer-events: none;
       img {
-        border: 1px solid #FF4F4F;
+        border: 2px solid #FF4F4F;
       }
     }
     
